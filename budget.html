@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Budget | Sleigh List</title>
+    <link rel="icon" href="img/tag.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+    <div class="shell topbar-inner">
+        <a class="brand" href="groups.html" aria-label="Sleigh List home">
+            <svg class="brand-tag" viewBox="0 0 32 20" aria-hidden="true"><path d="M8 0h22a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H8L0 10z" fill="currentColor"/><circle cx="8.5" cy="10" r="2.2" fill="var(--paper)"/></svg>
+            <span>Sleigh List</span>
+        </a>
+        <nav class="mainnav" aria-label="Main">
+            <a href="groups.html" >Groups</a>
+            <a href="lists.html" >My lists</a>
+            <a href="products.html" >Browse</a>
+            <a href="finder.html" >Gift finder</a>
+            <a href="budget.html" aria-current="page">Budget</a>
+        </nav>
+        <div class="usermenu">
+            <span class="avatar" style="--c:#2F6B5A" aria-hidden="true">JP</span><span class="usermenu-name">Jordan</span>
+            <a class="usermenu-out" href="login.html">Log out</a>
+        </div>
+    </div>
+</header>
+<main id="main" class="shell page">
+<div class="page-head">
+    <div>
+        <h1>Holiday budget</h1>
+        <p class="lede">Everything you've claimed across your groups, totaled per person.</p>
+    </div>
+    <form class="budget-set" action="#" data-endpoint="POST /budget" data-shell="Update budget">
+        <label for="amount">Your budget</label>
+        <div class="money-input">
+            <span aria-hidden="true">$</span>
+            <input id="amount" name="amount" type="number" min="0" step="0.01" value="400.00">
+        </div>
+        <button class="btn btn-quiet btn-small" type="submit">Update</button>
+    </form>
+</div>
+
+<section class="panel meter-panel" aria-labelledby="meter-h">
+    <div class="meter-head">
+        <h2 id="meter-h"><span class="meter-spent">$280.88</span> <span class="muted">of $400.00</span></h2>
+        <p class="ok">
+            $119.12 left
+        </p>
+    </div>
+    <div class="meter" role="img" aria-label="$280.88 claimed of a $400.00 budget">
+        <span class="meter-seg" style="width:20.75%;--c:#A8233A" title="Maya Park: $82.98"></span><span class="meter-seg" style="width:22.00%;--c:#8A5A2B" title="Rose Park: $88.00"></span><span class="meter-seg" style="width:16.24%;--c:#3D5A99" title="Sam Park: $64.94"></span><span class="meter-seg" style="width:7.50%;--c:#2C7A8C" title="Theo Alvarez: $29.99"></span><span class="meter-seg" style="width:3.74%;--c:#B5651D" title="Priya Shah: $14.97"></span>
+    </div>
+    <ul class="legend">
+        <li><span class="swatch" style="--c:#A8233A" aria-hidden="true"></span>Maya <span class="muted">$82.98</span></li><li><span class="swatch" style="--c:#8A5A2B" aria-hidden="true"></span>Rose <span class="muted">$88.00</span></li><li><span class="swatch" style="--c:#3D5A99" aria-hidden="true"></span>Sam <span class="muted">$64.94</span></li><li><span class="swatch" style="--c:#2C7A8C" aria-hidden="true"></span>Theo <span class="muted">$29.99</span></li><li><span class="swatch" style="--c:#B5651D" aria-hidden="true"></span>Priya <span class="muted">$14.97</span></li>
+    </ul>
+    <p class="small muted">7 gifts for 5 people. $187.97 already bought.</p>
+</section>
+
+<div class="recipients">
+    <section class="panel recipient" aria-labelledby="r-2">
+        <header class="recipient-head">
+            <span class="avatar" style="--c:#A8233A" aria-hidden="true">MP</span>
+            <div>
+                <h2 id="r-2">Maya Park</h2>
+                <p class="muted small">Park Family Christmas</p>
+            </div>
+            <p class="recipient-total">$82.98</p>
+        </header>
+        <ul class="gift-lines">
+            <li>
+                <div>
+                    <p>Sherpa Fleece Throw Blanket, 50 x 60 in</p>
+                    <p class="small muted">Claimed, not bought yet</p>
+                </div>
+                <span class="gift-price">$32.99</span>
+                <div class="btn-row">
+                    <form action="#" data-endpoint="POST /claims/501/purchased" data-shell="Mark bought"><button class="btn btn-quiet btn-small" type="submit">Mark bought</button></form>
+                    <form action="#" data-endpoint="POST /claims/501/delete" data-shell="Unclaim"><button class="btn btn-link btn-small" type="submit">Unclaim</button></form>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <p>LEGO Icons Orchid Building Set for Adults</p>
+                    <p class="small ok">Bought</p>
+                </div>
+                <span class="gift-price">$49.99</span>
+                <div class="btn-row">
+                    
+                    <form action="#" data-endpoint="POST /claims/502/delete" data-shell="Unclaim"><button class="btn btn-link btn-small" type="submit">Unclaim</button></form>
+                </div>
+            </li>
+        </ul>
+    </section>
+    <section class="panel recipient" aria-labelledby="r-4">
+        <header class="recipient-head">
+            <span class="avatar" style="--c:#8A5A2B" aria-hidden="true">RP</span>
+            <div>
+                <h2 id="r-4">Rose Park</h2>
+                <p class="muted small">Park Family Christmas</p>
+            </div>
+            <p class="recipient-total">$88.00</p>
+        </header>
+        <ul class="gift-lines">
+            <li>
+                <div>
+                    <p>Stoneware Mug Set of 4, 14 oz</p>
+                    <p class="small ok">Bought</p>
+                </div>
+                <span class="gift-price">$88.00</span>
+                <div class="btn-row">
+                    
+                    <form action="#" data-endpoint="POST /claims/503/delete" data-shell="Unclaim"><button class="btn btn-link btn-small" type="submit">Unclaim</button></form>
+                </div>
+            </li>
+        </ul>
+    </section>
+    <section class="panel recipient" aria-labelledby="r-3">
+        <header class="recipient-head">
+            <span class="avatar" style="--c:#3D5A99" aria-hidden="true">SP</span>
+            <div>
+                <h2 id="r-3">Sam Park</h2>
+                <p class="muted small">Park Family Christmas</p>
+            </div>
+            <p class="recipient-total">$64.94</p>
+        </header>
+        <ul class="gift-lines">
+            <li>
+                <div>
+                    <p>Codenames Party Board Game</p>
+                    <p class="small ok">Bought</p>
+                </div>
+                <span class="gift-price">$19.99</span>
+                <div class="btn-row">
+                    
+                    <form action="#" data-endpoint="POST /claims/504/delete" data-shell="Unclaim"><button class="btn btn-link btn-small" type="submit">Unclaim</button></form>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <p>Hydro Flask 32 oz Wide Mouth Bottle with Flex Cap</p>
+                    <p class="small muted">Claimed, not bought yet</p>
+                </div>
+                <span class="gift-price">$44.95</span>
+                <div class="btn-row">
+                    <form action="#" data-endpoint="POST /claims/505/purchased" data-shell="Mark bought"><button class="btn btn-quiet btn-small" type="submit">Mark bought</button></form>
+                    <form action="#" data-endpoint="POST /claims/505/delete" data-shell="Unclaim"><button class="btn btn-link btn-small" type="submit">Unclaim</button></form>
+                </div>
+            </li>
+        </ul>
+    </section>
+    <section class="panel recipient" aria-labelledby="r-7">
+        <header class="recipient-head">
+            <span class="avatar" style="--c:#2C7A8C" aria-hidden="true">TA</span>
+            <div>
+                <h2 id="r-7">Theo Alvarez</h2>
+                <p class="muted small">Apartment 4B</p>
+            </div>
+            <p class="recipient-total">$29.99</p>
+        </header>
+        <ul class="gift-lines">
+            <li>
+                <div>
+                    <p>Plano 3700 Tackle Box with 4 Utility Trays</p>
+                    <p class="small ok">Bought</p>
+                </div>
+                <span class="gift-price">$29.99</span>
+                <div class="btn-row">
+                    
+                    <form action="#" data-endpoint="POST /claims/506/delete" data-shell="Unclaim"><button class="btn btn-link btn-small" type="submit">Unclaim</button></form>
+                </div>
+            </li>
+        </ul>
+    </section>
+    <section class="panel recipient" aria-labelledby="r-6">
+        <header class="recipient-head">
+            <span class="avatar" style="--c:#B5651D" aria-hidden="true">PS</span>
+            <div>
+                <h2 id="r-6">Priya Shah</h2>
+                <p class="muted small">Apartment 4B</p>
+            </div>
+            <p class="recipient-total">$14.97</p>
+        </header>
+        <ul class="gift-lines">
+            <li>
+                <div>
+                    <p>Burt&#39;s Bees Essential Everyday Beauty Gift Set</p>
+                    <p class="small muted">Claimed, not bought yet</p>
+                </div>
+                <span class="gift-price">$14.97</span>
+                <div class="btn-row">
+                    <form action="#" data-endpoint="POST /claims/507/purchased" data-shell="Mark bought"><button class="btn btn-quiet btn-small" type="submit">Mark bought</button></form>
+                    <form action="#" data-endpoint="POST /claims/507/delete" data-shell="Unclaim"><button class="btn btn-link btn-small" type="submit">Unclaim</button></form>
+                </div>
+            </li>
+        </ul>
+    </section>
+</div>
+</main>
+<footer class="shell footer">
+    <p>Sleigh List frontend shell. Sample content only; buttons aren't connected yet.</p>
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>

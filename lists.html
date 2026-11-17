@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My wish lists | Sleigh List</title>
+    <link rel="icon" href="img/tag.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+    <div class="shell topbar-inner">
+        <a class="brand" href="groups.html" aria-label="Sleigh List home">
+            <svg class="brand-tag" viewBox="0 0 32 20" aria-hidden="true"><path d="M8 0h22a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H8L0 10z" fill="currentColor"/><circle cx="8.5" cy="10" r="2.2" fill="var(--paper)"/></svg>
+            <span>Sleigh List</span>
+        </a>
+        <nav class="mainnav" aria-label="Main">
+            <a href="groups.html" >Groups</a>
+            <a href="lists.html" aria-current="page">My lists</a>
+            <a href="products.html" >Browse</a>
+            <a href="finder.html" >Gift finder</a>
+            <a href="budget.html" >Budget</a>
+        </nav>
+        <div class="usermenu">
+            <span class="avatar" style="--c:#2F6B5A" aria-hidden="true">JP</span><span class="usermenu-name">Jordan</span>
+            <a class="usermenu-out" href="login.html">Log out</a>
+        </div>
+    </div>
+</header>
+<main id="main" class="shell page">
+<div class="page-head">
+    <div>
+        <h1>My wish lists</h1>
+        <p class="lede">You won't see what's been claimed on your own lists. That's how the surprise survives.</p>
+    </div>
+    <div class="btn-row">
+        <a class="btn btn-quiet" href="finder.html">Ask the gift finder</a>
+        <a class="btn" href="products.html">Browse gifts</a>
+    </div>
+</div>
+
+<div class="layout-lists">
+    <aside class="stack">
+        <nav class="panel list-nav" aria-label="Your lists">
+            <ul>
+                <li>
+                    <a href="lists.html" aria-current="page">
+                        <span class="list-nav-name">Christmas 2026</span>
+                        <span class="muted small">7 items, Park Family Christmas</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="lists.html" >
+                        <span class="list-nav-name">Apartment swap</span>
+                        <span class="muted small">3 items, Apartment 4B</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="lists.html" >
+                        <span class="list-nav-name">March birthday</span>
+                        <span class="muted small">2 items, Not shared yet</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <form class="panel stack" method="get" action="finder-results.html">
+            <h2 class="panel-title">Add by describing it</h2>
+            <input type="hidden" name="listId" value="1">
+            <div class="field">
+                <label for="nl-q">What do you want?</label>
+                <textarea id="nl-q" name="q" rows="2" placeholder="A cozy blanket under $40" required></textarea>
+            </div>
+            <button class="btn btn-quiet" type="submit">Find matches</button>
+        </form>
+        <form class="panel stack" action="#" data-endpoint="POST /lists" data-shell="Create list">
+            <h2 class="panel-title">New list</h2>
+            <div class="field">
+                <label for="l-name">Name</label>
+                <input id="l-name" name="name" placeholder="Christmas 2026" required>
+            </div>
+            <div class="field">
+                <label for="l-group">Share with</label>
+                <select id="l-group" name="groupId">
+                    <option value="">Keep private for now</option>
+                    <option value="1">Park Family Christmas</option><option value="2">Apartment 4B</option><option value="3">Studio 9 Gift Swap</option>
+                </select>
+            </div>
+            <button class="btn btn-quiet" type="submit">Create list</button>
+        </form>
+    </aside>
+
+    <section class="panel" aria-labelledby="list-h">
+        <header class="list-head">
+            <div>
+                <h2 id="list-h">Christmas 2026</h2>
+                <p class="muted">Shared with Park Family Christmas. 7 items, $686.41 total.</p>
+            </div>
+        </header>
+
+        <div class="items" role="table" aria-label="Items in Christmas 2026">
+            <div class="items-row items-headrow" role="row">
+                <span role="columnheader">Item</span>
+                <span role="columnheader">Priority</span>
+                <span role="columnheader">Note for gifters</span>
+                <span role="columnheader"><span class="sr-only">Actions</span></span>
+            </div>
+            <div class="items-row" role="row">
+                <div class="items-product" role="cell">
+                    <div class="thumb thumb-sm" style="--h:205" aria-hidden="true">S</div>
+                    <div>
+                        <p class="items-title">Sony WH-1000XM5 Wireless Noise Canceling Headphones</p>
+                        <p class="muted small">$329.99</p>
+                    </div>
+                </div>
+                <form class="items-edit" action="#" data-endpoint="POST /lists/1/items/1" data-shell="Save item" id="edit-1" role="cell">
+                    <label class="sr-only" for="prio-1">Priority</label>
+                    <select id="prio-1" name="priority">
+                        <option value="must" selected>Must-have</option>
+                        <option value="nice" >Nice to have</option>
+                    </select>
+                </form>
+                <div role="cell">
+                    <label class="sr-only" for="note-1">Note</label>
+                    <input id="note-1" name="note" form="edit-1" value="Black or silver" placeholder="Size, color, edition…">
+                </div>
+                <div class="items-actions" role="cell">
+                    <button class="btn btn-quiet btn-small" type="submit" form="edit-1">Save</button>
+                    <form action="#" data-endpoint="POST /lists/1/items/1/delete" data-shell="Remove item">
+                        <button class="btn btn-link btn-small" type="submit">Remove<span class="sr-only"> Sony WH-1000XM5 Wireless Noise Canceling Headphones</span></button>
+                    </form>
+                </div>
+            </div>
+            <div class="items-row" role="row">
+                <div class="items-product" role="cell">
+                    <div class="thumb thumb-sm" style="--h:18" aria-hidden="true">S</div>
+                    <div>
+                        <p class="items-title">Stoneware Mug Set of 4, 14 oz</p>
+                        <p class="muted small">$88.00</p>
+                    </div>
+                </div>
+                <form class="items-edit" action="#" data-endpoint="POST /lists/1/items/2" data-shell="Save item" id="edit-2" role="cell">
+                    <label class="sr-only" for="prio-2">Priority</label>
+                    <select id="prio-2" name="priority">
+                        <option value="must" >Must-have</option>
+                        <option value="nice" selected>Nice to have</option>
+                    </select>
+                </form>
+                <div role="cell">
+                    <label class="sr-only" for="note-2">Note</label>
+                    <input id="note-2" name="note" form="edit-2" value="" placeholder="Size, color, edition…">
+                </div>
+                <div class="items-actions" role="cell">
+                    <button class="btn btn-quiet btn-small" type="submit" form="edit-2">Save</button>
+                    <form action="#" data-endpoint="POST /lists/1/items/2/delete" data-shell="Remove item">
+                        <button class="btn btn-link btn-small" type="submit">Remove<span class="sr-only"> Stoneware Mug Set of 4, 14 oz</span></button>
+                    </form>
+                </div>
+            </div>
+            <div class="items-row" role="row">
+                <div class="items-product" role="cell">
+                    <div class="thumb thumb-sm" style="--h:350" aria-hidden="true">C</div>
+                    <div>
+                        <p class="items-title">Catan Board Game, 25th Anniversary</p>
+                        <p class="muted small">$43.99</p>
+                    </div>
+                </div>
+                <form class="items-edit" action="#" data-endpoint="POST /lists/1/items/3" data-shell="Save item" id="edit-3" role="cell">
+                    <label class="sr-only" for="prio-3">Priority</label>
+                    <select id="prio-3" name="priority">
+                        <option value="must" selected>Must-have</option>
+                        <option value="nice" >Nice to have</option>
+                    </select>
+                </form>
+                <div role="cell">
+                    <label class="sr-only" for="note-3">Note</label>
+                    <input id="note-3" name="note" form="edit-3" value="" placeholder="Size, color, edition…">
+                </div>
+                <div class="items-actions" role="cell">
+                    <button class="btn btn-quiet btn-small" type="submit" form="edit-3">Save</button>
+                    <form action="#" data-endpoint="POST /lists/1/items/3/delete" data-shell="Remove item">
+                        <button class="btn btn-link btn-small" type="submit">Remove<span class="sr-only"> Catan Board Game, 25th Anniversary</span></button>
+                    </form>
+                </div>
+            </div>
+            <div class="items-row" role="row">
+                <div class="items-product" role="cell">
+                    <div class="thumb thumb-sm" style="--h:45" aria-hidden="true">S</div>
+                    <div>
+                        <p class="items-title">Salt, Fat, Acid, Heat: Mastering the Elements of Good Cooking</p>
+                        <p class="muted small">$22.49</p>
+                    </div>
+                </div>
+                <form class="items-edit" action="#" data-endpoint="POST /lists/1/items/4" data-shell="Save item" id="edit-4" role="cell">
+                    <label class="sr-only" for="prio-4">Priority</label>
+                    <select id="prio-4" name="priority">
+                        <option value="must" >Must-have</option>
+                        <option value="nice" selected>Nice to have</option>
+                    </select>
+                </form>
+                <div role="cell">
+                    <label class="sr-only" for="note-4">Note</label>
+                    <input id="note-4" name="note" form="edit-4" value="Hardcover please" placeholder="Size, color, edition…">
+                </div>
+                <div class="items-actions" role="cell">
+                    <button class="btn btn-quiet btn-small" type="submit" form="edit-4">Save</button>
+                    <form action="#" data-endpoint="POST /lists/1/items/4/delete" data-shell="Remove item">
+                        <button class="btn btn-link btn-small" type="submit">Remove<span class="sr-only"> Salt, Fat, Acid, Heat: Mastering the Elements of Good Cooking</span></button>
+                    </form>
+                </div>
+            </div>
+            <div class="items-row" role="row">
+                <div class="items-product" role="cell">
+                    <div class="thumb thumb-sm" style="--h:260" aria-hidden="true">S</div>
+                    <div>
+                        <p class="items-title">Smartwool Hike Light Cushion Crew Socks, 3 Pack</p>
+                        <p class="muted small">$54.00</p>
+                    </div>
+                </div>
+                <form class="items-edit" action="#" data-endpoint="POST /lists/1/items/5" data-shell="Save item" id="edit-5" role="cell">
+                    <label class="sr-only" for="prio-5">Priority</label>
+                    <select id="prio-5" name="priority">
+                        <option value="must" >Must-have</option>
+                        <option value="nice" selected>Nice to have</option>
+                    </select>
+                </form>
+                <div role="cell">
+                    <label class="sr-only" for="note-5">Note</label>
+                    <input id="note-5" name="note" form="edit-5" value="Men&#39;s L" placeholder="Size, color, edition…">
+                </div>
+                <div class="items-actions" role="cell">
+                    <button class="btn btn-quiet btn-small" type="submit" form="edit-5">Save</button>
+                    <form action="#" data-endpoint="POST /lists/1/items/5/delete" data-shell="Remove item">
+                        <button class="btn btn-link btn-small" type="submit">Remove<span class="sr-only"> Smartwool Hike Light Cushion Crew Socks, 3 Pack</span></button>
+                    </form>
+                </div>
+            </div>
+            <div class="items-row" role="row">
+                <div class="items-product" role="cell">
+                    <div class="thumb thumb-sm" style="--h:18" aria-hidden="true">M</div>
+                    <div>
+                        <p class="items-title">Meat Thermometer Digital Instant Read</p>
+                        <p class="muted small">$17.99</p>
+                    </div>
+                </div>
+                <form class="items-edit" action="#" data-endpoint="POST /lists/1/items/6" data-shell="Save item" id="edit-6" role="cell">
+                    <label class="sr-only" for="prio-6">Priority</label>
+                    <select id="prio-6" name="priority">
+                        <option value="must" >Must-have</option>
+                        <option value="nice" selected>Nice to have</option>
+                    </select>
+                </form>
+                <div role="cell">
+                    <label class="sr-only" for="note-6">Note</label>
+                    <input id="note-6" name="note" form="edit-6" value="" placeholder="Size, color, edition…">
+                </div>
+                <div class="items-actions" role="cell">
+                    <button class="btn btn-quiet btn-small" type="submit" form="edit-6">Save</button>
+                    <form action="#" data-endpoint="POST /lists/1/items/6/delete" data-shell="Remove item">
+                        <button class="btn btn-link btn-small" type="submit">Remove<span class="sr-only"> Meat Thermometer Digital Instant Read</span></button>
+                    </form>
+                </div>
+            </div>
+            <div class="items-row" role="row">
+                <div class="items-product" role="cell">
+                    <div class="thumb thumb-sm" style="--h:18" aria-hidden="true">E</div>
+                    <div>
+                        <p class="items-title">Ember Mug 2 Temperature Control Smart Mug, 10 oz</p>
+                        <p class="muted small">$129.95</p>
+                    </div>
+                </div>
+                <form class="items-edit" action="#" data-endpoint="POST /lists/1/items/7" data-shell="Save item" id="edit-7" role="cell">
+                    <label class="sr-only" for="prio-7">Priority</label>
+                    <select id="prio-7" name="priority">
+                        <option value="must" selected>Must-have</option>
+                        <option value="nice" >Nice to have</option>
+                    </select>
+                </form>
+                <div role="cell">
+                    <label class="sr-only" for="note-7">Note</label>
+                    <input id="note-7" name="note" form="edit-7" value="10 oz, any color" placeholder="Size, color, edition…">
+                </div>
+                <div class="items-actions" role="cell">
+                    <button class="btn btn-quiet btn-small" type="submit" form="edit-7">Save</button>
+                    <form action="#" data-endpoint="POST /lists/1/items/7/delete" data-shell="Remove item">
+                        <button class="btn btn-link btn-small" type="submit">Remove<span class="sr-only"> Ember Mug 2 Temperature Control Smart Mug, 10 oz</span></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+</main>
+<footer class="shell footer">
+    <p>Sleigh List frontend shell. Sample content only; buttons aren't connected yet.</p>
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>

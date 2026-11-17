@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Browse gifts | Sleigh List</title>
+    <link rel="icon" href="img/tag.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+    <div class="shell topbar-inner">
+        <a class="brand" href="groups.html" aria-label="Sleigh List home">
+            <svg class="brand-tag" viewBox="0 0 32 20" aria-hidden="true"><path d="M8 0h22a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H8L0 10z" fill="currentColor"/><circle cx="8.5" cy="10" r="2.2" fill="var(--paper)"/></svg>
+            <span>Sleigh List</span>
+        </a>
+        <nav class="mainnav" aria-label="Main">
+            <a href="groups.html" >Groups</a>
+            <a href="lists.html" >My lists</a>
+            <a href="products.html" aria-current="page">Browse</a>
+            <a href="finder.html" >Gift finder</a>
+            <a href="budget.html" >Budget</a>
+        </nav>
+        <div class="usermenu">
+            <span class="avatar" style="--c:#2F6B5A" aria-hidden="true">JP</span><span class="usermenu-name">Jordan</span>
+            <a class="usermenu-out" href="login.html">Log out</a>
+        </div>
+    </div>
+</header>
+<main id="main" class="shell page">
+<div class="page-head">
+    <div>
+        <h1>Browse gifts</h1>
+        <p class="lede">48,213 products from gift-friendly categories. Add anything to one of your lists.</p>
+    </div>
+    <a class="btn btn-quiet" href="finder.html">Describe it instead</a>
+</div>
+
+<div class="layout-filters">
+    <form class="panel filters stack" id="filters" method="get" action="products.html" aria-label="Filter products">
+        <div class="field">
+            <label for="q">Search</label>
+            <input id="q" name="q" type="search" value="" placeholder="Headphones, mug, board game">
+        </div>
+        <div class="field">
+            <label for="category">Category</label>
+            <select id="category" name="category">
+                <option value="">All categories</option>
+                <option value="Books" >Books (6,204)</option><option value="Beauty &amp; Personal Care" >Beauty &amp; Personal Care (4,918)</option><option value="Clothing" >Clothing (7,355)</option><option value="Electronics" >Electronics (8,120)</option><option value="Home &amp; Kitchen" >Home &amp; Kitchen (5,731)</option><option value="Kitchen &amp; Dining" >Kitchen &amp; Dining (6,887)</option><option value="Office Products" >Office Products (1,942)</option><option value="Patio, Lawn &amp; Garden" >Patio, Lawn &amp; Garden (2,265)</option><option value="Sports &amp; Outdoors" >Sports &amp; Outdoors (3,164)</option><option value="Toys &amp; Games" >Toys &amp; Games (1,627)</option>
+            </select>
+        </div>
+        <fieldset class="field">
+            <legend>Price</legend>
+            <div class="field-row">
+                <label class="sr-only" for="min">Minimum price</label>
+                <input id="min" name="min" type="number" min="0" step="1" inputmode="decimal" value="" placeholder="$ min">
+                <label class="sr-only" for="max">Maximum price</label>
+                <input id="max" name="max" type="number" min="0" step="1" inputmode="decimal" value="" placeholder="$ max">
+            </div>
+        </fieldset>
+        <fieldset class="field">
+            <legend>Rating</legend>
+            <label class="check"><input type="radio" name="rating" value="" checked> Any rating</label>
+            <label class="check"><input type="radio" name="rating" value="4.5" > 4.5 and up</label>
+            <label class="check"><input type="radio" name="rating" value="4" > 4.0 and up</label>
+            <label class="check"><input type="radio" name="rating" value="3" > 3.0 and up</label>
+        </fieldset>
+        <label class="check"><input type="checkbox" name="bestseller" value="true" > Bestsellers only</label>
+        <div class="btn-row">
+            <button class="btn" type="submit">Apply filters</button>
+            <a class="btn btn-link" href="products.html">Clear</a>
+        </div>
+    </form>
+
+    <section aria-labelledby="results-h">
+        <div class="results-bar">
+            <h2 id="results-h" class="results-count">24 results <span class="muted small">showing 1 to 9</span></h2>
+            <div class="sort">
+                <label for="sort">Sort by</label>
+                <select id="sort" name="sort" form="filters" data-autosubmit>
+                    <option value="popular" selected>Most reviewed</option><option value="rating" >Highest rated</option><option value="price-asc" >Price: low to high</option><option value="price-desc" >Price: high to low</option>
+                </select>
+            </div>
+        </div>
+        <div class="product-grid">
+            <article class="product">
+    
+    <div class="thumb" style="--h:18" aria-hidden="true">S</div>
+    <div class="product-body">
+        <p class="product-cat">Kitchen &amp; Dining</p>
+        <h3 class="product-title"><a href="https://www.amazon.com/s?k&#x3D;Stanley+Quencher+H2.0+FlowState+Tumbler%2C+40+oz" target="_blank" rel="noopener">Stanley Quencher H2.0 FlowState Tumbler, 40 oz<span class="sr-only"> (opens in a new tab)</span></a></h3>
+        <p class="product-rating">
+            <span class="stars" style="--pct:96%" role="img" aria-label="4.8 out of 5 stars"></span>
+            <span>4.8</span>
+            <span class="muted">(182,340)</span>
+        </p>
+        <p class="product-price">
+            <strong>$45.00</strong>
+            
+            <span class="chip chip-gold">Bestseller</span>
+        </p>
+    </div>
+    <form class="product-add" action="#" data-endpoint="POST /lists/items" data-shell="Add to list">
+        <input type="hidden" name="productId" value="101">
+        <label class="sr-only" for="list-101">Wish list</label>
+        <select id="list-101" name="listId">
+            <option value="1" selected>Christmas 2026</option><option value="2" >Apartment swap</option><option value="3" >March birthday</option>
+        </select>
+        <button class="btn btn-small" type="submit">Add to list</button>
+    </form>
+</article>
+<article class="product">
+    
+    <div class="thumb" style="--h:18" aria-hidden="true">L</div>
+    <div class="product-body">
+        <p class="product-cat">Kitchen &amp; Dining</p>
+        <h3 class="product-title"><a href="https://www.amazon.com/s?k&#x3D;Lodge+12+Inch+Cast+Iron+Skillet%2C+Pre-Seasoned" target="_blank" rel="noopener">Lodge 12 Inch Cast Iron Skillet, Pre-Seasoned<span class="sr-only"> (opens in a new tab)</span></a></h3>
+        <p class="product-rating">
+            <span class="stars" style="--pct:94%" role="img" aria-label="4.7 out of 5 stars"></span>
+            <span>4.7</span>
+            <span class="muted">(154,887)</span>
+        </p>
+        <p class="product-price">
+            <strong>$34.90</strong>
+            <s class="muted">$44.90</s>
+            
+        </p>
+    </div>
+    <form class="product-add" action="#" data-endpoint="POST /lists/items" data-shell="Add to list">
+        <input type="hidden" name="productId" value="106">
+        <label class="sr-only" for="list-106">Wish list</label>
+        <select id="list-106" name="listId">
+            <option value="1" selected>Christmas 2026</option><option value="2" >Apartment swap</option><option value="3" >March birthday</option>
+        </select>
+        <button class="btn btn-small" type="submit">Add to list</button>
+    </form>
+</article>
+<article class="product">
+    
+    <div class="thumb" style="--h:18" aria-hidden="true">M</div>
+    <div class="product-body">
+        <p class="product-cat">Kitchen &amp; Dining</p>
+        <h3 class="product-title"><a href="https://www.amazon.com/s?k&#x3D;Meat+Thermometer+Digital+Instant+Read" target="_blank" rel="noopener">Meat Thermometer Digital Instant Read<span class="sr-only"> (opens in a new tab)</span></a></h3>
+        <p class="product-rating">
+            <span class="stars" style="--pct:94%" role="img" aria-label="4.7 out of 5 stars"></span>
+            <span>4.7</span>
+            <span class="muted">(103,455)</span>
+        </p>
+        <p class="product-price">
+            <strong>$17.99</strong>
+            <s class="muted">$19.99</s>
+            <span class="chip chip-gold">Bestseller</span>
+        </p>
+    </div>
+    <form class="product-add" action="#" data-endpoint="POST /lists/items" data-shell="Add to list">
+        <input type="hidden" name="productId" value="122">
+        <label class="sr-only" for="list-122">Wish list</label>
+        <select id="list-122" name="listId">
+            <option value="1" selected>Christmas 2026</option><option value="2" >Apartment swap</option><option value="3" >March birthday</option>
+        </select>
+        <button class="btn btn-small" type="submit">Add to list</button>
+    </form>
+</article>
+<article class="product">
+    
+    <div class="thumb" style="--h:205" aria-hidden="true">K</div>
+    <div class="product-body">
+        <p class="product-cat">Electronics</p>
+        <h3 class="product-title"><a href="https://www.amazon.com/s?k&#x3D;Kindle+Paperwhite+16GB%2C+7%22+Glare-Free+Display" target="_blank" rel="noopener">Kindle Paperwhite 16GB, 7&quot; Glare-Free Display<span class="sr-only"> (opens in a new tab)</span></a></h3>
+        <p class="product-rating">
+            <span class="stars" style="--pct:94%" role="img" aria-label="4.7 out of 5 stars"></span>
+            <span>4.7</span>
+            <span class="muted">(96,512)</span>
+        </p>
+        <p class="product-price">
+            <strong>$149.99</strong>
+            <s class="muted">$159.99</s>
+            <span class="chip chip-gold">Bestseller</span>
+        </p>
+    </div>
+    <form class="product-add" action="#" data-endpoint="POST /lists/items" data-shell="Add to list">
+        <input type="hidden" name="productId" value="102">
+        <label class="sr-only" for="list-102">Wish list</label>
+        <select id="list-102" name="listId">
+            <option value="1" selected>Christmas 2026</option><option value="2" >Apartment swap</option><option value="3" >March birthday</option>
+        </select>
+        <button class="btn btn-small" type="submit">Add to list</button>
+    </form>
+</article>
+<article class="product">
+    
+    <div class="thumb" style="--h:350" aria-hidden="true">C</div>
+    <div class="product-body">
+        <p class="product-cat">Toys &amp; Games</p>
+        <h3 class="product-title"><a href="https://www.amazon.com/s?k&#x3D;Codenames+Party+Board+Game" target="_blank" rel="noopener">Codenames Party Board Game<span class="sr-only"> (opens in a new tab)</span></a></h3>
+        <p class="product-rating">
+            <span class="stars" style="--pct:96%" role="img" aria-label="4.8 out of 5 stars"></span>
+            <span>4.8</span>
+            <span class="muted">(88,120)</span>
+        </p>
+        <p class="product-price">
+            <strong>$19.99</strong>
+            <s class="muted">$24.99</s>
+            <span class="chip chip-gold">Bestseller</span>
+        </p>
+    </div>
+    <form class="product-add" action="#" data-endpoint="POST /lists/items" data-shell="Add to list">
+        <input type="hidden" name="productId" value="114">
+        <label class="sr-only" for="list-114">Wish list</label>
+        <select id="list-114" name="listId">
+            <option value="1" selected>Christmas 2026</option><option value="2" >Apartment swap</option><option value="3" >March birthday</option>
+        </select>
+        <button class="btn btn-small" type="submit">Add to list</button>
+    </form>
+</article>
+<article class="product">
+    
+    <div class="thumb" style="--h:35" aria-hidden="true">A</div>
+    <div class="product-body">
+        <p class="product-cat">Home &amp; Kitchen</p>
+        <h3 class="product-title"><a href="https://www.amazon.com/s?k&#x3D;Aromatherapy+Essential+Oil+Diffuser%2C+300+ml" target="_blank" rel="noopener">Aromatherapy Essential Oil Diffuser, 300 ml<span class="sr-only"> (opens in a new tab)</span></a></h3>
+        <p class="product-rating">
+            <span class="stars" style="--pct:90%" role="img" aria-label="4.5 out of 5 stars"></span>
+            <span>4.5</span>
+            <span class="muted">(74,210)</span>
+        </p>
+        <p class="product-price">
+            <strong>$25.99</strong>
+            <s class="muted">$32.99</s>
+            
+        </p>
+    </div>
+    <form class="product-add" action="#" data-endpoint="POST /lists/items" data-shell="Add to list">
+        <input type="hidden" name="productId" value="123">
+        <label class="sr-only" for="list-123">Wish list</label>
+        <select id="list-123" name="listId">
+            <option value="1" selected>Christmas 2026</option><option value="2" >Apartment swap</option><option value="3" >March birthday</option>
+        </select>
+        <button class="btn btn-small" type="submit">Add to list</button>
+    </form>
+</article>
+<article class="product">
+    
+    <div class="thumb" style="--h:160" aria-hidden="true">H</div>
+    <div class="product-body">
+        <p class="product-cat">Sports &amp; Outdoors</p>
+        <h3 class="product-title"><a href="https://www.amazon.com/s?k&#x3D;Hydro+Flask+32+oz+Wide+Mouth+Bottle+with+Flex+Cap" target="_blank" rel="noopener">Hydro Flask 32 oz Wide Mouth Bottle with Flex Cap<span class="sr-only"> (opens in a new tab)</span></a></h3>
+        <p class="product-rating">
+            <span class="stars" style="--pct:96%" role="img" aria-label="4.8 out of 5 stars"></span>
+            <span>4.8</span>
+            <span class="muted">(61,372)</span>
+        </p>
+        <p class="product-price">
+            <strong>$44.95</strong>
+            
+            
+        </p>
+    </div>
+    <form class="product-add" action="#" data-endpoint="POST /lists/items" data-shell="Add to list">
+        <input type="hidden" name="productId" value="108">
+        <label class="sr-only" for="list-108">Wish list</label>
+        <select id="list-108" name="listId">
+            <option value="1" selected>Christmas 2026</option><option value="2" >Apartment swap</option><option value="3" >March birthday</option>
+        </select>
+        <button class="btn btn-small" type="submit">Add to list</button>
+    </form>
+</article>
+<article class="product">
+    
+    <div class="thumb" style="--h:35" aria-hidden="true">S</div>
+    <div class="product-body">
+        <p class="product-cat">Home &amp; Kitchen</p>
+        <h3 class="product-title"><a href="https://www.amazon.com/s?k&#x3D;Sherpa+Fleece+Throw+Blanket%2C+50+x+60+in" target="_blank" rel="noopener">Sherpa Fleece Throw Blanket, 50 x 60 in<span class="sr-only"> (opens in a new tab)</span></a></h3>
+        <p class="product-rating">
+            <span class="stars" style="--pct:94%" role="img" aria-label="4.7 out of 5 stars"></span>
+            <span>4.7</span>
+            <span class="muted">(58,903)</span>
+        </p>
+        <p class="product-price">
+            <strong>$32.99</strong>
+            <s class="muted">$39.99</s>
+            
+        </p>
+    </div>
+    <form class="product-add" action="#" data-endpoint="POST /lists/items" data-shell="Add to list">
+        <input type="hidden" name="productId" value="104">
+        <label class="sr-only" for="list-104">Wish list</label>
+        <select id="list-104" name="listId">
+            <option value="1" selected>Christmas 2026</option><option value="2" >Apartment swap</option><option value="3" >March birthday</option>
+        </select>
+        <button class="btn btn-small" type="submit">Add to list</button>
+    </form>
+</article>
+<article class="product">
+    
+    <div class="thumb" style="--h:350" aria-hidden="true">C</div>
+    <div class="product-body">
+        <p class="product-cat">Toys &amp; Games</p>
+        <h3 class="product-title"><a href="https://www.amazon.com/s?k&#x3D;Catan+Board+Game%2C+25th+Anniversary" target="_blank" rel="noopener">Catan Board Game, 25th Anniversary<span class="sr-only"> (opens in a new tab)</span></a></h3>
+        <p class="product-rating">
+            <span class="stars" style="--pct:96%" role="img" aria-label="4.8 out of 5 stars"></span>
+            <span>4.8</span>
+            <span class="muted">(52,670)</span>
+        </p>
+        <p class="product-price">
+            <strong>$43.99</strong>
+            <s class="muted">$54.99</s>
+            
+        </p>
+    </div>
+    <form class="product-add" action="#" data-endpoint="POST /lists/items" data-shell="Add to list">
+        <input type="hidden" name="productId" value="124">
+        <label class="sr-only" for="list-124">Wish list</label>
+        <select id="list-124" name="listId">
+            <option value="1" selected>Christmas 2026</option><option value="2" >Apartment swap</option><option value="3" >March birthday</option>
+        </select>
+        <button class="btn btn-small" type="submit">Add to list</button>
+    </form>
+</article>
+
+        </div>
+        <nav class="pager" aria-label="Pages">
+            <span class="muted">Page 1 of 3</span>
+            
+            <span class="btn btn-quiet btn-small" aria-disabled="true">Previous</span>
+            <a class="btn btn-quiet btn-small" href="#" rel="next">Next</a>
+            
+        </nav>
+    </section>
+</div>
+</main>
+<footer class="shell footer">
+    <p>Sleigh List frontend shell. Sample content only; buttons aren't connected yet.</p>
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>

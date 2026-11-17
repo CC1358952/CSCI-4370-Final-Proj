@@ -1,3 +1,9 @@
+# Secrets: keep real keys out of git
+.env
+.env.*
+!.env.example
+
+# Build / editor files
 target/
 .idea/
 *.iml

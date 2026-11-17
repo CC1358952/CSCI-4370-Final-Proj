@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Secret Santa | Sleigh List</title>
+    <link rel="icon" href="img/tag.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+    <div class="shell topbar-inner">
+        <a class="brand" href="groups.html" aria-label="Sleigh List home">
+            <svg class="brand-tag" viewBox="0 0 32 20" aria-hidden="true"><path d="M8 0h22a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H8L0 10z" fill="currentColor"/><circle cx="8.5" cy="10" r="2.2" fill="var(--paper)"/></svg>
+            <span>Sleigh List</span>
+        </a>
+        <nav class="mainnav" aria-label="Main">
+            <a href="groups.html" aria-current="page">Groups</a>
+            <a href="lists.html" >My lists</a>
+            <a href="products.html" >Browse</a>
+            <a href="finder.html" >Gift finder</a>
+            <a href="budget.html" >Budget</a>
+        </nav>
+        <div class="usermenu">
+            <span class="avatar" style="--c:#2F6B5A" aria-hidden="true">JP</span><span class="usermenu-name">Jordan</span>
+            <a class="usermenu-out" href="login.html">Log out</a>
+        </div>
+    </div>
+</header>
+<main id="main" class="shell page">
+<nav class="crumbs" aria-label="Breadcrumb">
+    <a href="groups.html">Groups</a> <span aria-hidden="true">/</span>
+    <a href="group.html">Park Family Christmas</a> <span aria-hidden="true">/</span>
+    Secret Santa
+</nav>
+<div class="page-head">
+    <div>
+        <h1>Secret Santa</h1>
+        <p class="lede">Park Family Christmas. Spending limit $40.00, gifts exchanged Dec 24, 2026.</p>
+    </div>
+</div>
+
+
+<div class="layout-split">
+    <section class="panel" aria-labelledby="who-h">
+        <h2 class="panel-title" id="who-h">Who can draw whom</h2>
+        <p class="small muted">Everyone draws someone in the group other than themselves and anyone they're excluded from.</p>
+        <ul class="eligible">
+            <li>
+                <span class="who"><span class="avatar avatar-sm" style="--c:#2F6B5A" aria-hidden="true">JP</span>Jordan Park</span>
+                <span class="eligible-count">4 options</span>
+                <span class="small muted eligible-names">Maya, Sam, Rose, Leo</span>
+            </li>
+            <li>
+                <span class="who"><span class="avatar avatar-sm" style="--c:#A8233A" aria-hidden="true">MP</span>Maya Park</span>
+                <span class="eligible-count">4 options</span>
+                <span class="small muted eligible-names">Jordan, Sam, Rose, Nina</span>
+            </li>
+            <li>
+                <span class="who"><span class="avatar avatar-sm" style="--c:#3D5A99" aria-hidden="true">SP</span>Sam Park</span>
+                <span class="eligible-count">5 options</span>
+                <span class="small muted eligible-names">Jordan, Maya, Rose, Nina, Leo</span>
+            </li>
+            <li>
+                <span class="who"><span class="avatar avatar-sm" style="--c:#8A5A2B" aria-hidden="true">RP</span>Rose Park</span>
+                <span class="eligible-count">5 options</span>
+                <span class="small muted eligible-names">Jordan, Maya, Sam, Nina, Leo</span>
+            </li>
+            <li>
+                <span class="who"><span class="avatar avatar-sm" style="--c:#9A3D6B" aria-hidden="true">NP</span>Nina Park</span>
+                <span class="eligible-count">4 options</span>
+                <span class="small muted eligible-names">Maya, Sam, Rose, Leo</span>
+            </li>
+            <li>
+                <span class="who"><span class="avatar avatar-sm" style="--c:#6B4C9A" aria-hidden="true">LC</span>Leo Chen</span>
+                <span class="eligible-count">4 options</span>
+                <span class="small muted eligible-names">Jordan, Sam, Rose, Nina</span>
+            </li>
+        </ul>
+    </section>
+
+    <div class="stack">
+        <section class="panel stack" aria-labelledby="ex-h">
+            <h2 class="panel-title" id="ex-h">Exclusions</h2>
+            <ul class="plain-list">
+                <li>
+                    <span>Maya and Leo <span class="muted small">Couple</span></span>
+                    <form action="#" data-endpoint="POST /groups/1/santa/exclusions/1/delete" data-shell="Remove exclusion">
+                        <button class="btn btn-link btn-small" type="submit">Remove<span class="sr-only"> exclusion for Maya and Leo</span></button>
+                    </form>
+                </li>
+                <li>
+                    <span>Jordan and Nina <span class="muted small">Already exchanging gifts</span></span>
+                    <form action="#" data-endpoint="POST /groups/1/santa/exclusions/2/delete" data-shell="Remove exclusion">
+                        <button class="btn btn-link btn-small" type="submit">Remove<span class="sr-only"> exclusion for Jordan and Nina</span></button>
+                    </form>
+                </li>
+                
+            </ul>
+            <form class="stack" action="#" data-endpoint="POST /groups/1/santa/exclusions" data-shell="Add exclusion">
+                <div class="field-row">
+                    <div class="field">
+                        <label for="ex-a">Person</label>
+                        <select id="ex-a" name="memberA"><option value="" selected disabled>Choose</option><option value="1">Jordan Park</option><option value="2">Maya Park</option><option value="3">Sam Park</option><option value="4">Rose Park</option><option value="8">Nina Park</option><option value="5">Leo Chen</option></select>
+                    </div>
+                    <div class="field">
+                        <label for="ex-b">Can't draw</label>
+                        <select id="ex-b" name="memberB"><option value="" selected disabled>Choose</option><option value="1">Jordan Park</option><option value="2">Maya Park</option><option value="3">Sam Park</option><option value="4">Rose Park</option><option value="8">Nina Park</option><option value="5">Leo Chen</option></select>
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="ex-reason">Reason (optional)</label>
+                    <input id="ex-reason" name="reason" placeholder="Couple">
+                </div>
+                <button class="btn btn-quiet btn-small" type="submit">Add exclusion</button>
+            </form>
+        </section>
+
+        <form class="panel draw" action="santa-drawn.html" data-endpoint="POST /groups/1/santa/draw" data-go="santa-drawn.html">
+            <p>Ready? Everyone gets one name, and nobody draws themselves or someone they're excluded from.</p>
+            <button class="btn btn-gold" type="submit">Draw names</button>
+        </form>
+    </div>
+</div>
+</main>
+<footer class="shell footer">
+    <p>Sleigh List frontend shell. Sample content only; buttons aren't connected yet.</p>
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>

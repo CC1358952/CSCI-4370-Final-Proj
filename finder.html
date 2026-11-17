@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gift finder | Sleigh List</title>
+    <link rel="icon" href="img/tag.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+    <div class="shell topbar-inner">
+        <a class="brand" href="groups.html" aria-label="Sleigh List home">
+            <svg class="brand-tag" viewBox="0 0 32 20" aria-hidden="true"><path d="M8 0h22a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H8L0 10z" fill="currentColor"/><circle cx="8.5" cy="10" r="2.2" fill="var(--paper)"/></svg>
+            <span>Sleigh List</span>
+        </a>
+        <nav class="mainnav" aria-label="Main">
+            <a href="groups.html" >Groups</a>
+            <a href="lists.html" >My lists</a>
+            <a href="products.html" >Browse</a>
+            <a href="finder.html" aria-current="page">Gift finder</a>
+            <a href="budget.html" >Budget</a>
+        </nav>
+        <div class="usermenu">
+            <span class="avatar" style="--c:#2F6B5A" aria-hidden="true">JP</span><span class="usermenu-name">Jordan</span>
+            <a class="usermenu-out" href="login.html">Log out</a>
+        </div>
+    </div>
+</header>
+<main id="main" class="shell page">
+<div class="page-head">
+    <div>
+        <h1>Gift finder</h1>
+        <p class="lede">Describe the person and your budget. We'll turn it into a search of our product catalog.</p>
+    </div>
+</div>
+
+<form class="finder panel" method="get" action="finder-results.html">
+    <label for="finder-q" class="finder-label">Who are you shopping for?</label>
+    <textarea id="finder-q" name="q" rows="3" placeholder="My dad likes fishing and grilling, around $50" required></textarea>
+    
+    
+    <div class="finder-foot">
+        <div class="examples" aria-label="Examples">
+            <button class="example" type="button" data-example="My dad likes fishing and grilling, around $50">My dad likes fishing and grilling, around $50</button><button class="example" type="button" data-example="Cozy gift for my sister who&#39;s always cold, under $40">Cozy gift for my sister who&#39;s always cold, under $40</button><button class="example" type="button" data-example="Board game for roommates who love strategy">Board game for roommates who love strategy</button><button class="example" type="button" data-example="Something for a coffee snob, $100 max">Something for a coffee snob, $100 max</button>
+        </div>
+        <button class="btn" type="submit">Find gifts</button>
+    </div>
+</form>
+
+<p class="finder-empty muted">Try one of the examples above, or write your own. Mention interests, who it's for and a price.</p>
+</main>
+<footer class="shell footer">
+    <p>Sleigh List frontend shell. Sample content only; buttons aren't connected yet.</p>
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>

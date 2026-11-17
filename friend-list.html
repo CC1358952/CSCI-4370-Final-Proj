@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Maya&#39;s list | Sleigh List</title>
+    <link rel="icon" href="img/tag.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+    <div class="shell topbar-inner">
+        <a class="brand" href="groups.html" aria-label="Sleigh List home">
+            <svg class="brand-tag" viewBox="0 0 32 20" aria-hidden="true"><path d="M8 0h22a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H8L0 10z" fill="currentColor"/><circle cx="8.5" cy="10" r="2.2" fill="var(--paper)"/></svg>
+            <span>Sleigh List</span>
+        </a>
+        <nav class="mainnav" aria-label="Main">
+            <a href="groups.html" aria-current="page">Groups</a>
+            <a href="lists.html" >My lists</a>
+            <a href="products.html" >Browse</a>
+            <a href="finder.html" >Gift finder</a>
+            <a href="budget.html" >Budget</a>
+        </nav>
+        <div class="usermenu">
+            <span class="avatar" style="--c:#2F6B5A" aria-hidden="true">JP</span><span class="usermenu-name">Jordan</span>
+            <a class="usermenu-out" href="login.html">Log out</a>
+        </div>
+    </div>
+</header>
+<main id="main" class="shell page">
+<nav class="crumbs" aria-label="Breadcrumb">
+    <a href="groups.html">Groups</a> <span aria-hidden="true">/</span>
+    <a href="group.html">Park Family Christmas</a> <span aria-hidden="true">/</span>
+    Maya's list
+</nav>
+
+<div class="page-head">
+    <div class="who-head">
+        <span class="avatar avatar-lg" style="--c:#A8233A" aria-hidden="true">MP</span>
+        <div>
+            <h1>Maya's Christmas 2026</h1>
+            <p class="lede">Claims are hidden from Maya. Everyone else in Park Family Christmas can see them.</p>
+            
+        </div>
+    </div>
+    <div class="btn-row">
+        <a class="btn btn-quiet" href="friend-list-owner.html">Preview as Maya</a>
+        
+    </div>
+</div>
+
+
+
+<div class="layout-aside">
+    <ul class="tags" aria-label="Items on Maya's list">
+        <li class="tag-wrap">
+            <article class="tag ">
+                <div class="tag-body">
+                    <h2 class="tag-title">Kindle Paperwhite 16GB, 7&quot; Glare-Free Display</h2>
+                    <p class="tag-meta"><strong>$149.99</strong> <span class="muted">Electronics</span></p>
+                    <p class="tag-meta">
+                        <span class="chip chip-red">Must-have</span>
+                        
+                    </p>
+                    <p class="tag-note">“Signature edition if it&#39;s on sale”</p>
+                </div>
+
+                <div class="tag-status">
+                    <form action="#" data-endpoint="POST /claims" data-shell="Claim item">
+                        <input type="hidden" name="itemId" value="21">
+                        <button class="btn btn-small" type="submit">I'm buying this</button>
+                    </form>
+                </div>
+            </article>
+        </li>
+        <li class="tag-wrap">
+            <article class="tag tag-taken">
+                <div class="tag-body">
+                    <h2 class="tag-title">Ninja CREAMi Ice Cream Maker, 7 One-Touch Programs</h2>
+                    <p class="tag-meta"><strong>$199.99</strong> <span class="muted">Kitchen &amp; Dining</span></p>
+                    <p class="tag-meta">
+                        <span class="chip chip-red">Must-have</span>
+                        
+                    </p>
+                    
+                </div>
+
+                <div class="tag-status">
+                    <p class="stamp">Claimed by Leo</p>
+                    <p class="muted small">Already bought</p>
+                </div>
+            </article>
+        </li>
+        <li class="tag-wrap">
+            <article class="tag tag-yours">
+                <div class="tag-body">
+                    <h2 class="tag-title">Sherpa Fleece Throw Blanket, 50 x 60 in</h2>
+                    <p class="tag-meta"><strong>$32.99</strong> <span class="muted">Home &amp; Kitchen</span></p>
+                    <p class="tag-meta">
+                        
+                        <span class="chip">Nice to have</span>
+                    </p>
+                    <p class="tag-note">“Something in sage or oatmeal”</p>
+                </div>
+
+                <div class="tag-status">
+                    <p class="stamp stamp-yours">You're getting this</p>
+                    <div class="btn-row">
+                        <form action="#" data-endpoint="POST /claims/23/purchased" data-shell="Mark bought"><button class="btn btn-small" type="submit">Mark bought</button></form>
+                        
+                        <form action="#" data-endpoint="POST /claims/23/delete" data-shell="Unclaim"><button class="btn btn-quiet btn-small" type="submit">Unclaim</button></form>
+                    </div>
+                </div>
+            </article>
+        </li>
+        <li class="tag-wrap">
+            <article class="tag tag-taken">
+                <div class="tag-body">
+                    <h2 class="tag-title">Instax Mini 12 Instant Camera</h2>
+                    <p class="tag-meta"><strong>$79.95</strong> <span class="muted">Electronics</span></p>
+                    <p class="tag-meta">
+                        
+                        <span class="chip">Nice to have</span>
+                    </p>
+                    
+                </div>
+
+                <div class="tag-status">
+                    <p class="stamp">Claimed by Sam</p>
+                    <p class="muted small">Not bought yet</p>
+                </div>
+            </article>
+        </li>
+        <li class="tag-wrap">
+            <article class="tag ">
+                <div class="tag-body">
+                    <h2 class="tag-title">Smartwool Hike Light Cushion Crew Socks, 3 Pack</h2>
+                    <p class="tag-meta"><strong>$54.00</strong> <span class="muted">Clothing</span></p>
+                    <p class="tag-meta">
+                        
+                        <span class="chip">Nice to have</span>
+                    </p>
+                    <p class="tag-note">“Women&#39;s M, any color but pink”</p>
+                </div>
+
+                <div class="tag-status">
+                    <form action="#" data-endpoint="POST /claims" data-shell="Claim item">
+                        <input type="hidden" name="itemId" value="25">
+                        <button class="btn btn-small" type="submit">I'm buying this</button>
+                    </form>
+                </div>
+            </article>
+        </li>
+        <li class="tag-wrap">
+            <article class="tag tag-yours">
+                <div class="tag-body">
+                    <h2 class="tag-title">LEGO Icons Orchid Building Set for Adults</h2>
+                    <p class="tag-meta"><strong>$49.99</strong> <span class="muted">Toys &amp; Games</span></p>
+                    <p class="tag-meta">
+                        
+                        <span class="chip">Nice to have</span>
+                    </p>
+                    
+                </div>
+
+                <div class="tag-status">
+                    <p class="stamp stamp-yours">You're getting this</p>
+                    <div class="btn-row">
+                        
+                        <span class="ok small">Bought</span>
+                        <form action="#" data-endpoint="POST /claims/26/delete" data-shell="Unclaim"><button class="btn btn-quiet btn-small" type="submit">Unclaim</button></form>
+                    </div>
+                </div>
+            </article>
+        </li>
+        <li class="tag-wrap">
+            <article class="tag ">
+                <div class="tag-body">
+                    <h2 class="tag-title">Salt, Fat, Acid, Heat: Mastering the Elements of Good Cooking</h2>
+                    <p class="tag-meta"><strong>$22.49</strong> <span class="muted">Books</span></p>
+                    <p class="tag-meta">
+                        
+                        <span class="chip">Nice to have</span>
+                    </p>
+                    
+                </div>
+
+                <div class="tag-status">
+                    <form action="#" data-endpoint="POST /claims" data-shell="Claim item">
+                        <input type="hidden" name="itemId" value="27">
+                        <button class="btn btn-small" type="submit">I'm buying this</button>
+                    </form>
+                </div>
+            </article>
+        </li>
+    </ul>
+
+    <aside class="stack">
+        <section class="panel">
+            <h2 class="panel-title">This list so far</h2>
+            <dl class="mini-facts">
+                <div><dt>Items</dt><dd>7</dd></div>
+                <div><dt>Claimed</dt><dd>4</dd></div>
+                <div><dt>Still open</dt><dd>3</dd></div>
+            </dl>
+            <p class="small">You're covering 2 items ($82.98). <a href="budget.html">See your budget</a></p>
+        </section>
+        <section class="panel">
+            <h2 class="panel-title">Other lists in this group</h2>
+            <ul class="plain-list">
+                <li><a class="who" href="friend-list.html"><span class="avatar avatar-sm" style="--c:#3D5A99" aria-hidden="true">SP</span>Sam Park</a></li>
+                <li><a class="who" href="friend-list.html"><span class="avatar avatar-sm" style="--c:#8A5A2B" aria-hidden="true">RP</span>Rose Park</a></li>
+                <li><a class="who" href="friend-list.html"><span class="avatar avatar-sm" style="--c:#9A3D6B" aria-hidden="true">NP</span>Nina Park</a></li>
+                <li><a class="who" href="friend-list.html"><span class="avatar avatar-sm" style="--c:#6B4C9A" aria-hidden="true">LC</span>Leo Chen</a></li>
+            </ul>
+        </section>
+    </aside>
+</div>
+</main>
+<footer class="shell footer">
+    <p>Sleigh List frontend shell. Sample content only; buttons aren't connected yet.</p>
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>
