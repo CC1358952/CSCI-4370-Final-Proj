@@ -37,7 +37,7 @@ public class GroupController {
     @GetMapping("/groups/{groupId}")
     public String dashboard(@PathVariable int groupId, Model model) {
         Group g = MockData.group(groupId);
-        List<MemberStat> stats = MockData.memberStats();
+        List<MemberStat> stats = MockData.memberStats(g);
         int totalItems = stats.stream().mapToInt(MemberStat::items).sum();
         double avg = stats.stream().mapToDouble(MemberStat::listValue).average().orElse(0);
         // Claimed % only counts other people's lists (your own claims are hidden from you).
@@ -50,7 +50,7 @@ public class GroupController {
         model.addAttribute("facts", List.of(
                 new Fact(String.valueOf(g.memberCount()), "members"),
                 new Fact(String.valueOf(totalItems), "items wished for"),
-                new Fact((othersItems - othersOpen) * 100 / othersItems + "%", "of others' items claimed"),
+                new Fact((othersItems == 0 ? 0 : (othersItems - othersOpen) * 100 / othersItems) + "%", "of others' items claimed"),
                 new Fact(Models.money(avg), "average list value")));
         model.addAttribute("stats", stats);
         model.addAttribute("waiting", stats.stream().filter(s -> !s.you() && s.unclaimed() > 0).toList());
@@ -66,7 +66,7 @@ public class GroupController {
         }
         Group g = MockData.group(groupId);
         Member owner = MockData.member(userId);
-        List<ClaimTag> tags = MockData.friendList();
+        List<ClaimTag> tags = MockData.friendList(g, owner);
         boolean ownerView = "owner".equals(as);
 
         long claimed = tags.stream().filter(t -> !t.unclaimed()).count();
@@ -77,7 +77,7 @@ public class GroupController {
         model.addAttribute("navGroups", true);
         model.addAttribute("group", g);
         model.addAttribute("owner", owner);
-        model.addAttribute("listName", "Christmas 2026");
+        model.addAttribute("listName", g.id() == 1 ? "Christmas 2026" : g.occasion() + " list");
         model.addAttribute("ownerView", ownerView);
         model.addAttribute("tags", tags);
         model.addAttribute("itemCount", tags.size());
@@ -100,8 +100,8 @@ public class GroupController {
         model.addAttribute("navGroups", true);
         model.addAttribute("group", g);
         model.addAttribute("drawn", isDrawn);
-        model.addAttribute("recipient", MockData.santaRecipient());
-        model.addAttribute("exclusions", MockData.exclusions());
+        model.addAttribute("recipient", MockData.santaRecipient(g));
+        model.addAttribute("exclusions", MockData.exclusions(g));
         model.addAttribute("eligibility", MockData.eligibility(g));
         model.addAttribute("members", g.members());
         return "santa";

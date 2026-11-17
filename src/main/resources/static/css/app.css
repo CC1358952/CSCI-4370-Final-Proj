@@ -835,3 +835,9 @@ a.who:hover { color: var(--cranberry); }
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { transition: none !important; animation: none !important; }
 }
+
+/* added: real product images from the dataset, linked titles */
+.thumb-img { width: 100%; object-fit: contain; background: var(--paper); border: 1px solid var(--frost); }
+.product-title a { color: inherit; text-decoration: none; }
+.product-title a:hover { color: var(--cranberry); text-decoration: underline; }
+.results-count .small { font-family: var(--font-body); font-weight: 400; margin-left: 6px; }

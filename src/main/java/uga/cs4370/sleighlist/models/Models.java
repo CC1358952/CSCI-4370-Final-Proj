@@ -41,8 +41,22 @@ public final class Models {
         }
     }
 
+    /**
+     * Mirrors the Kaggle Amazon Products 2023 columns. imageUrl / productUrl
+     * come straight from the dataset; when null the UI shows a coloured
+     * placeholder tile and a search link instead.
+     */
     public record Product(int id, String title, String category, double price, double listPrice,
-                          double stars, int reviews, boolean bestseller) {
+                          double stars, int reviews, boolean bestseller,
+                          String imageUrl, String productUrl) {
+        public Product(int id, String title, String category, double price, double listPrice,
+                       double stars, int reviews, boolean bestseller) {
+            this(id, title, category, price, listPrice, stars, reviews, bestseller, null, null);
+        }
+        public String link() {
+            return productUrl != null ? productUrl
+                    : "https://www.amazon.com/s?k=" + java.net.URLEncoder.encode(title, java.nio.charset.StandardCharsets.UTF_8);
+        }
         public String priceLabel() { return money(price); }
         public boolean onSale() { return listPrice > price; }
         public String listPriceLabel() { return money(listPrice); }

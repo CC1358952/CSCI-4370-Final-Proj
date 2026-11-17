@@ -10,6 +10,8 @@
 <form class="finder panel" method="get" action="/finder">
     <label for="finder-q" class="finder-label">Who are you shopping for?</label>
     <textarea id="finder-q" name="q" rows="3" placeholder="My dad likes fishing and grilling, around $50" required>{{q}}</textarea>
+    {{#listId}}<input type="hidden" name="listId" value="{{listId}}">{{/listId}}
+    {{#targetList}}<p class="small muted">Picks you add go to <strong>{{targetList}}</strong>.</p>{{/targetList}}
     <div class="finder-foot">
         <div class="examples" aria-label="Examples">
             {{#examples}}<button class="example" type="button" data-example="{{.}}">{{.}}</button>{{/examples}}

@@ -45,7 +45,7 @@
 
     <section aria-labelledby="results-h">
         <div class="results-bar">
-            <h2 id="results-h" class="results-count">{{resultCount}} results</h2>
+            <h2 id="results-h" class="results-count">{{resultCount}} results <span class="muted small">showing {{rangeLabel}}</span></h2>
             <div class="sort">
                 <label for="sort">Sort by</label>
                 <select id="sort" name="sort" form="filters" data-autosubmit>
@@ -62,11 +62,15 @@
             <p>Widen the price range or pick a different category. <a href="/products">Clear all filters</a></p>
         </div>
         {{/products}}
+        {{#showPager}}
         <nav class="pager" aria-label="Pages">
-            <span class="muted">Page 1</span>
-            <a class="btn btn-quiet btn-small" href="#" aria-disabled="true">Previous</a>
-            <a class="btn btn-quiet btn-small" href="#">Next</a>
+            <span class="muted">Page {{page}} of {{pages}}</span>
+            {{#prevUrl}}<a class="btn btn-quiet btn-small" href="{{prevUrl}}" rel="prev">Previous</a>{{/prevUrl}}
+            {{^prevUrl}}<span class="btn btn-quiet btn-small" aria-disabled="true">Previous</span>{{/prevUrl}}
+            {{#nextUrl}}<a class="btn btn-quiet btn-small" href="{{nextUrl}}" rel="next">Next</a>{{/nextUrl}}
+            {{^nextUrl}}<span class="btn btn-quiet btn-small" aria-disabled="true">Next</span>{{/nextUrl}}
         </nav>
+        {{/showPager}}
     </section>
 </div>
 {{> partials/bottom}}

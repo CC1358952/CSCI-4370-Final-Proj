@@ -25,6 +25,15 @@
                 {{/lists}}
             </ul>
         </nav>
+        <form class="panel stack" method="get" action="/finder">
+            <h2 class="panel-title">Add by describing it</h2>
+            <input type="hidden" name="listId" value="{{list.id}}">
+            <div class="field">
+                <label for="nl-q">What do you want?</label>
+                <textarea id="nl-q" name="q" rows="2" placeholder="A cozy blanket under $40" required></textarea>
+            </div>
+            <button class="btn btn-quiet" type="submit">Find matches</button>
+        </form>
         <form class="panel stack" method="post" action="/lists">
             <h2 class="panel-title">New list</h2>
             <div class="field">

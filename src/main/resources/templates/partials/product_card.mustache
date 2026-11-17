@@ -1,8 +1,9 @@
 <article class="product">
-    <div class="thumb" style="--h:{{hue}}" aria-hidden="true">{{initial}}</div>
+    {{#imageUrl}}<img class="thumb thumb-img" src="{{imageUrl}}" alt="" loading="lazy">{{/imageUrl}}
+    {{^imageUrl}}<div class="thumb" style="--h:{{hue}}" aria-hidden="true">{{initial}}</div>{{/imageUrl}}
     <div class="product-body">
         <p class="product-cat">{{category}}</p>
-        <h3 class="product-title">{{title}}</h3>
+        <h3 class="product-title"><a href="{{link}}" target="_blank" rel="noopener">{{title}}<span class="sr-only"> (opens in a new tab)</span></a></h3>
         <p class="product-rating">
             <span class="stars" style="--pct:{{starsPct}}%" role="img" aria-label="{{starsLabel}} out of 5 stars"></span>
             <span>{{starsLabel}}</span>

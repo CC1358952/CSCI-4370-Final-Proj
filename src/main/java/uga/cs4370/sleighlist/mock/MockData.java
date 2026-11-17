@@ -160,20 +160,29 @@ public final class MockData {
                 .collect(Collectors.toList());
     }
 
-    public static List<Option> myListOptions() {
+    public static List<Option> myListOptions(int selectedId) {
+        int sel = selectedId == 0 ? 1 : selectedId;
         return myLists(0).stream()
-                .map(l -> new Option(String.valueOf(l.id()), l.name(), l.id() == 1))
+                .map(l -> new Option(String.valueOf(l.id()), l.name(), l.id() == sel))
                 .collect(Collectors.toList());
     }
 
     // -------------------------------------------------------- friend's list
-    /** Maya's list as Jordan sees it (claims visible because Jordan isn't the owner). */
-    public static List<ClaimTag> friendList() {
+    /**
+     * A member's list as the current user sees it (claims visible because the
+     * viewer isn't the owner). Claimers are drawn from the same group.
+     */
+    public static List<ClaimTag> friendList(Group g, Member owner) {
+        List<Member> others = g.members().stream()
+                .filter(m -> m.id() != owner.id() && m.id() != currentUser().id())
+                .collect(Collectors.toList());
+        Member c1 = others.isEmpty() ? null : others.get(others.size() - 1);
+        Member c2 = others.isEmpty() ? null : others.get(0);
         return List.of(
                 new ClaimTag(21, product(102), true, "Signature edition if it's on sale", null, false, false),
-                new ClaimTag(22, product(103), true, "", LEO, false, true),
+                new ClaimTag(22, product(103), true, "", c1, false, c1 != null),
                 new ClaimTag(23, product(104), false, "Something in sage or oatmeal", null, true, false),
-                new ClaimTag(24, product(116), false, "", SAM, false, false),
+                new ClaimTag(24, product(116), false, "", c2, false, false),
                 new ClaimTag(25, product(115), false, "Women's M, any color but pink", null, false, false),
                 new ClaimTag(26, product(105), false, "", null, true, true),
                 new ClaimTag(27, product(118), false, "", null, false, false)
@@ -181,15 +190,18 @@ public final class MockData {
     }
 
     // ------------------------------------------------------ group dashboard
-    public static List<MemberStat> memberStats() {
-        return List.of(
-                new MemberStat(JORDAN, 7, 0, 686.41, true),
-                new MemberStat(MAYA, 7, 3, 589.40, false),
-                new MemberStat(SAM, 6, 4, 412.50, false),
-                new MemberStat(ROSE, 3, 0, 121.47, false),
-                new MemberStat(NINA, 8, 6, 389.20, false),
-                new MemberStat(LEO, 5, 2, 560.00, false)
-        );
+    public static List<MemberStat> memberStats(Group g) {
+        Map<Integer, MemberStat> known = new LinkedHashMap<>();
+        known.put(JORDAN.id(), new MemberStat(JORDAN, 7, 0, 686.41, true));
+        known.put(MAYA.id(), new MemberStat(MAYA, 7, 3, 589.40, false));
+        known.put(SAM.id(), new MemberStat(SAM, 6, 4, 412.50, false));
+        known.put(ROSE.id(), new MemberStat(ROSE, 3, 0, 121.47, false));
+        known.put(NINA.id(), new MemberStat(NINA, 8, 6, 389.20, false));
+        known.put(LEO.id(), new MemberStat(LEO, 5, 2, 560.00, false));
+        return g.members().stream()
+                .map(m -> known.getOrDefault(m.id(),
+                        new MemberStat(m, 3 + m.id() % 5, m.id() % 3, (3 + m.id() % 5) * 48.75, false)))
+                .collect(Collectors.toList());
     }
 
     public static List<CategoryStat> topCategories() {
@@ -229,7 +241,8 @@ public final class MockData {
     }
 
     // --------------------------------------------------------- secret santa
-    public static List<Exclusion> exclusions() {
+    public static List<Exclusion> exclusions(Group g) {
+        if (g.id() != 1) return List.of();
         return List.of(
                 new Exclusion(1, MAYA, LEO, "Couple"),
                 new Exclusion(2, JORDAN, NINA, "Already exchanging gifts")
@@ -238,7 +251,7 @@ public final class MockData {
 
     /** For each member: who they're allowed to draw (same group, not self, not excluded). */
     public static List<Eligibility> eligibility(Group g) {
-        List<Exclusion> ex = exclusions();
+        List<Exclusion> ex = exclusions(g);
         return g.members().stream().map(m -> {
             List<Member> allowed = g.members().stream()
                     .filter(o -> o.id() != m.id())
@@ -251,8 +264,10 @@ public final class MockData {
         }).collect(Collectors.toList());
     }
 
-    /** Who the current user drew. */
-    public static Member santaRecipient() {
-        return SAM;
+    /** Who the current user drew in this group. */
+    public static Member santaRecipient(Group g) {
+        if (g.id() == 1) return SAM;
+        return g.members().stream().filter(m -> m.id() != currentUser().id())
+                .reduce((a, b) -> b).orElse(currentUser());
     }
 }
