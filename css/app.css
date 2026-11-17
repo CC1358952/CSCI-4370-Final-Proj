@@ -17,8 +17,8 @@
     --gold-deep: #8C6510;
     --ok: #2F7552;
 
-    --font-display: "Bricolage Grotesque", "Avenir Next", system-ui, sans-serif;
-    --font-body: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-display: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-body: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
 
     --r-sm: 6px;
     --r-md: 10px;
@@ -33,7 +33,7 @@ body {
     margin: 0;
     background: var(--snow);
     color: var(--ink);
-    font: 400 16px/1.55 var(--font-body);
+    font: 400 15.5px/1.6 var(--font-body);
 }
 
 h1, h2, h3 {
@@ -41,9 +41,9 @@ h1, h2, h3 {
     font-weight: 700;
     line-height: 1.15;
     margin: 0;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
 }
-h1 { font-size: clamp(1.75rem, 1.4rem + 1.4vw, 2.5rem); }
+h1 { font-size: clamp(1.75rem, 1.4rem + 1.4vw, 2.5rem); font-weight: 800; letter-spacing: -0.03em; }
 h2 { font-size: 1.25rem; }
 h3 { font-size: 1.05rem; }
 p { margin: 0; }
