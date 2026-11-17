@@ -1,0 +1,92 @@
+{{> partials/top}}
+{{> partials/nav}}
+<nav class="crumbs" aria-label="Breadcrumb">
+    <a href="/groups">Groups</a> <span aria-hidden="true">/</span>
+    <a href="/groups/{{group.id}}">{{group.name}}</a> <span aria-hidden="true">/</span>
+    {{owner.firstName}}'s list
+</nav>
+
+<div class="page-head">
+    <div class="who-head">
+        {{#owner}}<span class="avatar avatar-lg" style="--c:{{color}}" aria-hidden="true">{{initials}}</span>{{/owner}}
+        <div>
+            <h1>{{owner.firstName}}'s {{listName}}</h1>
+            {{^ownerView}}<p class="lede">Claims are hidden from {{owner.firstName}}. Everyone else in {{group.name}} can see them.</p>{{/ownerView}}
+            {{#ownerView}}<p class="lede">You're previewing what {{owner.firstName}} sees. Claims stay hidden.</p>{{/ownerView}}
+        </div>
+    </div>
+    <div class="btn-row">
+        {{^ownerView}}<a class="btn btn-quiet" href="?as=owner">Preview as {{owner.firstName}}</a>{{/ownerView}}
+        {{#ownerView}}<a class="btn btn-quiet" href="?">Back to your view</a>{{/ownerView}}
+    </div>
+</div>
+
+{{#ownerView}}<div class="banner" role="note">Preview mode. This is {{owner.firstName}}'s view: no claim info, no claim buttons.</div>{{/ownerView}}
+
+<div class="layout-aside">
+    <ul class="tags" aria-label="Items on {{owner.firstName}}'s list">
+        {{#tags}}
+        <li class="tag-wrap">
+            <article class="tag {{^ownerView}}{{#claimedByYou}}tag-yours{{/claimedByYou}}{{#claimedByOther}}tag-taken{{/claimedByOther}}{{/ownerView}}">
+                <div class="tag-body">
+                    {{#product}}
+                    <h2 class="tag-title">{{title}}</h2>
+                    <p class="tag-meta"><strong>{{priceLabel}}</strong> <span class="muted">{{category}}</span></p>
+                    {{/product}}
+                    <p class="tag-meta">
+                        {{#mustHave}}<span class="chip chip-red">Must-have</span>{{/mustHave}}
+                        {{^mustHave}}<span class="chip">Nice to have</span>{{/mustHave}}
+                    </p>
+                    {{#note}}<p class="tag-note">“{{note}}”</p>{{/note}}
+                </div>
+
+                {{^ownerView}}
+                <div class="tag-status">
+                    {{#unclaimed}}
+                    <form method="post" action="/claims">
+                        <input type="hidden" name="itemId" value="{{itemId}}">
+                        <button class="btn btn-small" type="submit">I'm buying this</button>
+                    </form>
+                    {{/unclaimed}}
+                    {{#claimedByOther}}
+                    <p class="stamp">Claimed by {{claimer.firstName}}</p>
+                    <p class="muted small">{{#purchased}}Already bought{{/purchased}}{{^purchased}}Not bought yet{{/purchased}}</p>
+                    {{/claimedByOther}}
+                    {{#claimedByYou}}
+                    <p class="stamp stamp-yours">You're getting this</p>
+                    <div class="btn-row">
+                        {{^purchased}}<form method="post" action="/claims/{{itemId}}/purchased"><button class="btn btn-small" type="submit">Mark bought</button></form>{{/purchased}}
+                        {{#purchased}}<span class="ok small">Bought</span>{{/purchased}}
+                        <form method="post" action="/claims/{{itemId}}/delete"><button class="btn btn-quiet btn-small" type="submit">Unclaim</button></form>
+                    </div>
+                    {{/claimedByYou}}
+                </div>
+                {{/ownerView}}
+            </article>
+        </li>
+        {{/tags}}
+    </ul>
+
+    <aside class="stack">
+        {{^ownerView}}
+        <section class="panel">
+            <h2 class="panel-title">This list so far</h2>
+            <dl class="mini-facts">
+                <div><dt>Items</dt><dd>{{itemCount}}</dd></div>
+                <div><dt>Claimed</dt><dd>{{claimedCount}}</dd></div>
+                <div><dt>Still open</dt><dd>{{openCount}}</dd></div>
+            </dl>
+            <p class="small">You're covering {{mineCount}} items ({{mineTotal}}). <a href="/budget">See your budget</a></p>
+        </section>
+        {{/ownerView}}
+        <section class="panel">
+            <h2 class="panel-title">Other lists in this group</h2>
+            <ul class="plain-list">
+                {{#otherMembers}}
+                <li><a class="who" href="/groups/{{group.id}}/members/{{id}}"><span class="avatar avatar-sm" style="--c:{{color}}" aria-hidden="true">{{initials}}</span>{{name}}</a></li>
+                {{/otherMembers}}
+            </ul>
+        </section>
+    </aside>
+</div>
+{{> partials/bottom}}

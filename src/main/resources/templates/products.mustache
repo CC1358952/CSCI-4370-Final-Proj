@@ -1,0 +1,72 @@
+{{> partials/top}}
+{{> partials/nav}}
+<div class="page-head">
+    <div>
+        <h1>Browse gifts</h1>
+        <p class="lede">{{catalogSize}} products from gift-friendly categories. Add anything to one of your lists.</p>
+    </div>
+    <a class="btn btn-quiet" href="/finder">Describe it instead</a>
+</div>
+
+<div class="layout-filters">
+    <form class="panel filters stack" id="filters" method="get" action="/products" aria-label="Filter products">
+        <div class="field">
+            <label for="q">Search</label>
+            <input id="q" name="q" type="search" value="{{q}}" placeholder="Headphones, mug, board game">
+        </div>
+        <div class="field">
+            <label for="category">Category</label>
+            <select id="category" name="category">
+                <option value="">All categories</option>
+                {{#categories}}<option value="{{name}}" {{#selected}}selected{{/selected}}>{{name}} ({{countLabel}})</option>{{/categories}}
+            </select>
+        </div>
+        <fieldset class="field">
+            <legend>Price</legend>
+            <div class="field-row">
+                <label class="sr-only" for="min">Minimum price</label>
+                <input id="min" name="min" type="number" min="0" step="1" inputmode="decimal" value="{{min}}" placeholder="$ min">
+                <label class="sr-only" for="max">Maximum price</label>
+                <input id="max" name="max" type="number" min="0" step="1" inputmode="decimal" value="{{max}}" placeholder="$ max">
+            </div>
+        </fieldset>
+        <fieldset class="field">
+            <legend>Rating</legend>
+            {{#ratings}}
+            <label class="check"><input type="radio" name="rating" value="{{value}}" {{#selected}}checked{{/selected}}> {{label}}</label>
+            {{/ratings}}
+        </fieldset>
+        <label class="check"><input type="checkbox" name="bestseller" value="true" {{#bestseller}}checked{{/bestseller}}> Bestsellers only</label>
+        <div class="btn-row">
+            <button class="btn" type="submit">Apply filters</button>
+            <a class="btn btn-link" href="/products">Clear</a>
+        </div>
+    </form>
+
+    <section aria-labelledby="results-h">
+        <div class="results-bar">
+            <h2 id="results-h" class="results-count">{{resultCount}} results</h2>
+            <div class="sort">
+                <label for="sort">Sort by</label>
+                <select id="sort" name="sort" form="filters" data-autosubmit>
+                    {{#sorts}}<option value="{{value}}" {{#selected}}selected{{/selected}}>{{label}}</option>{{/sorts}}
+                </select>
+            </div>
+        </div>
+        <div class="product-grid">
+            {{#products}}{{> partials/product_card}}{{/products}}
+        </div>
+        {{^products}}
+        <div class="empty">
+            <h3>No products match those filters</h3>
+            <p>Widen the price range or pick a different category. <a href="/products">Clear all filters</a></p>
+        </div>
+        {{/products}}
+        <nav class="pager" aria-label="Pages">
+            <span class="muted">Page 1</span>
+            <a class="btn btn-quiet btn-small" href="#" aria-disabled="true">Previous</a>
+            <a class="btn btn-quiet btn-small" href="#">Next</a>
+        </nav>
+    </section>
+</div>
+{{> partials/bottom}}

@@ -1,0 +1,50 @@
+{{> partials/top}}
+{{> partials/nav}}
+<div class="page-head">
+    <div>
+        <h1>Gift finder</h1>
+        <p class="lede">Describe the person and your budget. We'll turn it into a search of our product catalog.</p>
+    </div>
+</div>
+
+<form class="finder panel" method="get" action="/finder">
+    <label for="finder-q" class="finder-label">Who are you shopping for?</label>
+    <textarea id="finder-q" name="q" rows="3" placeholder="My dad likes fishing and grilling, around $50" required>{{q}}</textarea>
+    <div class="finder-foot">
+        <div class="examples" aria-label="Examples">
+            {{#examples}}<button class="example" type="button" data-example="{{.}}">{{.}}</button>{{/examples}}
+        </div>
+        <button class="btn" type="submit">Find gifts</button>
+    </div>
+</form>
+
+{{#hasQuery}}
+<div class="layout-aside layout-aside-left">
+    <aside class="panel stack read">
+        <h2 class="panel-title">How we read that</h2>
+        <div>
+            <p class="small muted">Categories</p>
+            <p class="chips">{{#parsedCategories}}<span class="chip">{{.}}</span>{{/parsedCategories}}</p>
+        </div>
+        <div>
+            <p class="small muted">Keywords</p>
+            <p class="chips">{{#parsedKeywords}}<span class="chip">{{.}}</span>{{/parsedKeywords}}</p>
+        </div>
+        <div>
+            <p class="small muted">Price range</p>
+            <p><strong>{{parsedRange}}</strong></p>
+        </div>
+        <a class="btn btn-quiet btn-small" href="{{browseLink}}">Adjust these filters</a>
+    </aside>
+    <section aria-labelledby="finder-results">
+        <h2 id="finder-results" class="results-count">Gifts that match</h2>
+        <div class="product-grid">
+            {{#products}}{{> partials/product_card}}{{/products}}
+        </div>
+    </section>
+</div>
+{{/hasQuery}}
+{{^hasQuery}}
+<p class="finder-empty muted">Try one of the examples above, or write your own. Mention interests, who it's for and a price.</p>
+{{/hasQuery}}
+{{> partials/bottom}}

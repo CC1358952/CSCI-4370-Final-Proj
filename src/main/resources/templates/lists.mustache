@@ -1,0 +1,101 @@
+{{> partials/top}}
+{{> partials/nav}}
+<div class="page-head">
+    <div>
+        <h1>My wish lists</h1>
+        <p class="lede">You won't see what's been claimed on your own lists. That's how the surprise survives.</p>
+    </div>
+    <div class="btn-row">
+        <a class="btn btn-quiet" href="/finder">Ask the gift finder</a>
+        <a class="btn" href="/products">Browse gifts</a>
+    </div>
+</div>
+
+<div class="layout-lists">
+    <aside class="stack">
+        <nav class="panel list-nav" aria-label="Your lists">
+            <ul>
+                {{#lists}}
+                <li>
+                    <a href="/lists/{{id}}" {{#selected}}aria-current="page"{{/selected}}>
+                        <span class="list-nav-name">{{name}}</span>
+                        <span class="muted small">{{itemCount}} items, {{groupName}}</span>
+                    </a>
+                </li>
+                {{/lists}}
+            </ul>
+        </nav>
+        <form class="panel stack" method="post" action="/lists">
+            <h2 class="panel-title">New list</h2>
+            <div class="field">
+                <label for="l-name">Name</label>
+                <input id="l-name" name="name" placeholder="Christmas 2026" required>
+            </div>
+            <div class="field">
+                <label for="l-group">Share with</label>
+                <select id="l-group" name="groupId">
+                    <option value="">Keep private for now</option>
+                    {{#groups}}<option value="{{id}}">{{name}}</option>{{/groups}}
+                </select>
+            </div>
+            <button class="btn btn-quiet" type="submit">Create list</button>
+        </form>
+    </aside>
+
+    {{#list}}
+    <section class="panel" aria-labelledby="list-h">
+        <header class="list-head">
+            <div>
+                <h2 id="list-h">{{name}}</h2>
+                <p class="muted">Shared with {{groupName}}. {{itemCount}} items, {{totalLabel}} total.</p>
+            </div>
+        </header>
+
+        <div class="items" role="table" aria-label="Items in {{name}}">
+            <div class="items-row items-headrow" role="row">
+                <span role="columnheader">Item</span>
+                <span role="columnheader">Priority</span>
+                <span role="columnheader">Note for gifters</span>
+                <span role="columnheader"><span class="sr-only">Actions</span></span>
+            </div>
+            {{#items}}
+            <div class="items-row" role="row">
+                {{#product}}
+                <div class="items-product" role="cell">
+                    <div class="thumb thumb-sm" style="--h:{{hue}}" aria-hidden="true">{{initial}}</div>
+                    <div>
+                        <p class="items-title">{{title}}</p>
+                        <p class="muted small">{{priceLabel}}</p>
+                    </div>
+                </div>
+                {{/product}}
+                <form class="items-edit" method="post" action="/lists/{{list.id}}/items/{{id}}" id="edit-{{id}}" role="cell">
+                    <label class="sr-only" for="prio-{{id}}">Priority</label>
+                    <select id="prio-{{id}}" name="priority">
+                        <option value="must" {{#mustHave}}selected{{/mustHave}}>Must-have</option>
+                        <option value="nice" {{^mustHave}}selected{{/mustHave}}>Nice to have</option>
+                    </select>
+                </form>
+                <div role="cell">
+                    <label class="sr-only" for="note-{{id}}">Note</label>
+                    <input id="note-{{id}}" name="note" form="edit-{{id}}" value="{{note}}" placeholder="Size, color, edition…">
+                </div>
+                <div class="items-actions" role="cell">
+                    <button class="btn btn-quiet btn-small" type="submit" form="edit-{{id}}">Save</button>
+                    <form method="post" action="/lists/{{list.id}}/items/{{id}}/delete">
+                        <button class="btn btn-link btn-small" type="submit">Remove<span class="sr-only"> {{product.title}}</span></button>
+                    </form>
+                </div>
+            </div>
+            {{/items}}
+            {{^items}}
+            <div class="empty">
+                <h3>This list is empty</h3>
+                <p><a href="/products">Browse gifts</a> or describe what you want to the <a href="/finder">gift finder</a>.</p>
+            </div>
+            {{/items}}
+        </div>
+    </section>
+    {{/list}}
+</div>
+{{> partials/bottom}}

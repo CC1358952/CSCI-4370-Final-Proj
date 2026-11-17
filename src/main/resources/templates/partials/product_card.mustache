@@ -1,0 +1,25 @@
+<article class="product">
+    <div class="thumb" style="--h:{{hue}}" aria-hidden="true">{{initial}}</div>
+    <div class="product-body">
+        <p class="product-cat">{{category}}</p>
+        <h3 class="product-title">{{title}}</h3>
+        <p class="product-rating">
+            <span class="stars" style="--pct:{{starsPct}}%" role="img" aria-label="{{starsLabel}} out of 5 stars"></span>
+            <span>{{starsLabel}}</span>
+            <span class="muted">({{reviewsLabel}})</span>
+        </p>
+        <p class="product-price">
+            <strong>{{priceLabel}}</strong>
+            {{#onSale}}<s class="muted">{{listPriceLabel}}</s>{{/onSale}}
+            {{#bestseller}}<span class="chip chip-gold">Bestseller</span>{{/bestseller}}
+        </p>
+    </div>
+    <form class="product-add" method="post" action="/lists/items">
+        <input type="hidden" name="productId" value="{{id}}">
+        <label class="sr-only" for="list-{{id}}">Wish list</label>
+        <select id="list-{{id}}" name="listId">
+            {{#myLists}}<option value="{{value}}" {{#selected}}selected{{/selected}}>{{label}}</option>{{/myLists}}
+        </select>
+        <button class="btn btn-small" type="submit">Add to list</button>
+    </form>
+</article>
